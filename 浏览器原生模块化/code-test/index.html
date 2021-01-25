@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浏览器原生模块化测试</title>
+</head>
+<body>
+    <script type="module" src="main.js">
+        /*
+           没有type="module"，会报错 Uncaught SyntaxError: Cannot use import statement outside a module
+           加上type="module", 本地加载Html文件（比如一个 file:// 路径的文件）会报CORS的安全问题
+         */
+    </script>
+</body>
+</html>
