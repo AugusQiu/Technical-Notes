@@ -37,4 +37,13 @@ props、event命名语义化，避免单个单词的命名，必须有清晰的�
 * 组件目录， 遵循 ”就近维护“ 的原则
 * 抽离的组件/代码块，优先放置到页面类型文件夹下，根据共用程度，依次抽离到 自己模块的components文件夹下、src的components文件夹下
 
+## 组件实例选项官方推荐书写顺序
+* components
+* props
+* data
+* computed
+* watch
+* 生命周期狗子
+* methods
+
 
