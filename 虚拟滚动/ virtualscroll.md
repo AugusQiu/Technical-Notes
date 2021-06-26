@@ -119,3 +119,28 @@ function sumHeight(list,start=0,end = list.length){
     return height
 }
 ````
+### 虚拟滚动和无限滚动（懒加载）的区别
+* 虚拟滚动：只渲染可视部分，不可见部分不渲染，一次性拿到全部数据, 列表10个固定列表项DOM节点，就一直是10个
+* 无限滚动：每次只渲染一部分，等到滚动底部，再渲染一部分，所以可以分阶段去请求数据
+
+虚拟滚动最大的弊端，每次滑到底部，才加载一部分，体验不太好
+
+### 懒加载利用IntersectionObserver API实现
+````js
+const imgs = document.querySelectorAll('img')
+var options = {}
+function lazyLoad(target){
+    const observer = new IntersectionObserver((entries,observer)=>{
+        entries.forEach(entrie =>{
+            if(entrie.isIntersecting){
+                const img = entrie.target
+                const src = img.getArribute('data-src')
+                img.setAttribute('src',src)
+                observer.unobserve(img) // 停止监听已经加载完成的图片
+            }
+        })
+    }，options)
+    observer.observe(target)
+}
+imgs.forEach(lazyload)
+````
