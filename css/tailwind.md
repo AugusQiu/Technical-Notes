@@ -8,4 +8,17 @@ Tailwind在HTML标签中添加各种基础类class的方式和内嵌样式inline
 * 支持响应式设计，如：md:text-lg
 
 ## 使用
-https://juejin.cn/post/6883874356041252878
+将Tailwind基础类引入到项目的样式表中，比如：项目的样式在src/styles.css文档
+>推荐VSCode插件：Tailwind CSS IntellSense
+````js
+/*styles.css*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+````
+如果使用postcss插件或者其他打包工具，如webpack，则使用@import关键字导入
+````js
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+````
