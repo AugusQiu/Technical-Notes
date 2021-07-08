@@ -65,3 +65,31 @@ webpack 模块引用路径  => 依赖
    
  为什么tapable组织过程中，还有编译？第一遍去执行、编译出不同阶段的执行函数，第二次可以执行这些函数，提高性能 
 ````
+## 代码编译与AST
+````html
+  webpack
+     组织代码 
+     代码编译  兼容不同的语言
+         ts         => js
+         sass、less => css
+         es6        => es5
+         代码压缩
+                
+   编译时 编译之前不会运行
+   运行时 分配内存
+
+
+var a = 1 + 2 + 3 
+
+=> 拆解成小的token [var,a,=,1,+,2,+,3]
+{
+   type: 'keyword',
+   value: 'var',
+}
+{
+   type: 'identifier',
+   value:'a'
+}
+
+=> 词法分析 构建语法树
+````
